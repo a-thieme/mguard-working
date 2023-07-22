@@ -239,7 +239,7 @@ private:
   ndn::security::KeyChain m_keyChain;
   ndn::Scheduler m_scheduler;
   std::thread m_face_thread;
-  ndn::security::ValidatorConfig m_validator;
+  ndn::ValidatorConfig m_validator;
 
   ndn::Name m_consumerPrefix;
   ndn::Name m_syncPrefix;

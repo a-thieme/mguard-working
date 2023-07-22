@@ -45,8 +45,9 @@ Publisher::Publisher(ndn::Face& face, ndn::security::KeyChain& keyChain,
 , m_producerPrefix(producerPrefix)
 , m_producerCert(producerCert)
 , m_authorityCert(attrAuthorityCertificate)
-, m_abe_producer(m_face, m_keyChain, m_producerCert, m_authorityCert)
+, m_abe_producer(m_face, m_keyChain, m_validator, m_producerCert, m_authorityCert)
 {
+  m_validator.load("certs/trust-schema.conf");
   auto certName = ndn::security::extractIdentityFromCertName(m_producerCert.getName());
 
   NDN_LOG_INFO("Setting interest filter on name: " << certName);

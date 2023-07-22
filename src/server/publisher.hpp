@@ -120,6 +120,7 @@ private:
   ndn::Name m_producerPrefix;
   ndn::security::Certificate m_producerCert;
   ndn::security::Certificate m_authorityCert;
+  ndn::ValidatorConfig m_validator{m_face};
   ndn::nacabe::CacheProducer m_abe_producer;
 
   std::vector<ndn::Data> m_ckBuffer;

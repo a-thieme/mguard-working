@@ -45,7 +45,7 @@ Subscriber::Subscriber(const ndn::Name& consumerPrefix, const ndn::Name& syncPre
 , m_syncPrefix(syncPrefix)
 , m_controllerPrefix(controllerPrefix)
 
-, m_abe_consumer(m_face, m_keyChain, *loadCert(consumerCertPath), *loadCert(aaCertPath))
+, m_abe_consumer(m_face, m_keyChain, m_validator, *loadCert(consumerCertPath), *loadCert(aaCertPath))
 
 , m_psync_consumer(m_syncPrefix, m_face,
                    std::bind(&Subscriber::receivedHelloData, this, _1),
