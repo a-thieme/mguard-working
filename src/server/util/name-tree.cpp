@@ -18,16 +18,8 @@
  */
  
 #include "name-tree.hpp"
-#include "../../common.hpp"
 
-#include <ndn-cxx/util/logger.hpp>
-
-#include <string>
-#include <utility>
-
-namespace mguard{
-namespace util {
-namespace nametree {
+namespace mguard::util::nametree {
 
 NDN_LOG_INIT(mguard.nametree);
 
@@ -76,7 +68,7 @@ NameTree::createNode(std::string nodeId, const ndn::Name& fullName)
   return parent_node;
 }
 
-ndn::optional<TreeNode*>
+std::optional<TreeNode*>
 NameTree::getNode(TreeNode* startFrom, ndn::Name name)
 {
   auto info = getLongestMatchedName(startFrom, name);
@@ -257,6 +249,4 @@ NameTree::_printTree(TreeNode* startFrom)
   }
 }
 
-} // nametree
-} // util
 } // mguard

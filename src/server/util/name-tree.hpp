@@ -22,7 +22,7 @@
 #define MGUARD_UTIL_NAMETREE_HPP
 
 #include <ndn-cxx/name.hpp>
-#include <string>
+#include <ndn-cxx/util/logger.hpp>
 
 namespace mguard {
 namespace util {
@@ -75,7 +75,7 @@ public:
    *  @param startFrom node pointer, starting node of the getNode
    *  @param name name prefix to getNode for
   */
-  ndn::optional<TreeNode*>
+  std::optional<TreeNode*>
   getNode(TreeNode* startFrom, ndn::Name name);
 
   /** 
@@ -119,7 +119,7 @@ public:
   findNode(std::vector<TreeNode*> children, ndn::Name& target);
 
 private:
-  TreeNode*
+  static TreeNode*
   createNode(std::string nodeId, const ndn::Name& fullName);
 
   void

@@ -7,7 +7,7 @@ project(mguard
         DESCRIPTION "mGuard")
 
 # flags
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 if (HAVE_TESTS)
     add_compile_definitions(HAVE_TESTS)
@@ -51,7 +51,7 @@ set(PKG_CONFIG_LIBS
 set(PKG_CONFIG_CFLAGS
         "-I\${includedir} -DMGUARD_CMAKE_BUILD"
         )
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake-pkgconfig.pc.in"
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/mguard.pc.in"
         "${CMAKE_CURRENT_BINARY_DIR}/lib${PROJECT_NAME}.pc")
 
 include(GNUInstallDirs)
